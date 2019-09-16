@@ -1,0 +1,50 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        maven { url = 'https://files.minecraftforge.net/maven' }
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:3.+'
+        classpath 'org.ow2.asm:asm:7.1'
+        classpath 'org.ow2.asm:asm-tree:7.1'
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'net.minecraftforge.gradle.patcher'
+
+ext {
+    MAPPING_CHANNEL = 'snapshot'
+    MAPPING_VERSION = '20190719-1.14.3'
+    MC_VERSION = '1.14.4'
+    MCP_VERSION = '20190829.143755'
+}
+
+sourceCompatibility = targetCompatibility = JavaVersion.VERSION_1_8
+compileJava {
+    sourceCompatibility = targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+repositories {
+    mavenLocal()
+    maven {
+        name = 'mojang'
+        url = 'https://libraries.minecraft.net'
+    }
+    maven {
+        name = 'forge'
+        url = 'http://files.minecraftforge.net/maven'
+    }
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.apache.logging.log4j:log4j-api:2.11.2'
+    implementation 'org.apache.logging.log4j:log4j-core:2.11.2'
+    implementation 'com.mojang:authlib:1.5.25'
+    implementation 'cpw.mods:modlauncher:3.2.+'
+    implementation 'org.apache.commons:commons-lang3:3.9'
+}
