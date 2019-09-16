@@ -1,5 +1,7 @@
 import groovy.json.JsonBuilder
 
+import java.text.SimpleDateFormat
+
 plugins {
     id 'java'
 }
@@ -8,6 +10,7 @@ ext {
     MC_VERSION = '1.14.4'
     MCP_VERSION = '20190829.143755'
     BINPATCH_VERSION = '1.0.5'
+    SPEC_VERSION = 1
 }
 
 group = 'net.impactclient'
@@ -56,6 +59,23 @@ processResources {
             ],
             'patches': 'patches/',
             'inject': 'inject/',
-            'spec': 1
+            'spec': SPEC_VERSION
     ]).toPrettyString()
+}
+
+jar {
+    manifest {
+        attributes(
+                'Specification-Title': 'Vanilla User Development',
+                'Specification-Vendor': 'ImpactDevelopment',
+                'Specification-Version': SPEC_VERSION,
+                'Implementation-Title': project.group,
+                'Implementation-Version': project.version,
+                'Implementation-Vendor': 'ImpactDevelopment',
+                'Build-Timestamp': new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ").format(new Date()),
+                'Created-By': "Gradle ${gradle.gradleVersion}",
+                'Build-Jdk': "${System.properties['java.version']} (${System.properties['java.vendor']} ${System.properties['java.vm.version']})",
+                'Build-OS': "${System.properties['os.name']} ${System.properties['os.arch']} ${System.properties['os.version']}"
+        )
+    }
 }
