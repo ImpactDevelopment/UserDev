@@ -1,0 +1,7 @@
+/**
+ * settings.gradle
+ *
+ * Use this file to configure the gradle projects
+ */
+
+rootProject.name = 'UserDev'

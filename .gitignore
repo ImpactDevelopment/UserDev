@@ -1,5 +1,6 @@
 *.iml
 .gradle/
+/build/
 
 # Keep only a few intellij settings
 /.idea/*
