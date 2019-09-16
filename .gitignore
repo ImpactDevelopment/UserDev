@@ -1,3 +1,7 @@
-.idea/
 *.iml
 .gradle/
+
+# Keep only a few intellij settings
+/.idea/*
+!/.idea/gradle.run.settings.xml
+!/.idea/vcs.xml
