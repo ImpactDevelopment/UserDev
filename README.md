@@ -12,3 +12,4 @@ Add a maven repo containing builds from this project and then add `minecraft net
 - [ ] Add a publish task to send builds to maven
 - [ ] Consider changing package name (maybe use `net.minecraft:userdev` or `net.minecraft:vanilla` or `net.minecraft:modlauncher` or something)
 - [ ] Auto detect version from git tag or env or something
+- [ ] Use a non-fml namespace for Launch arguments etc
