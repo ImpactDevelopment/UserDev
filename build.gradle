@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat
 
 plugins {
     id 'java'
+    id 'maven-publish'
 }
 
 ext {
@@ -78,5 +79,19 @@ jar {
                 'Build-Jdk': "${System.properties['java.version']} (${System.properties['java.vendor']} ${System.properties['java.vm.version']})",
                 'Build-OS': "${System.properties['os.name']} ${System.properties['os.arch']} ${System.properties['os.version']}"
         )
+    }
+}
+
+publishing {
+    repositories {
+        maven {
+            // change to point to your repo, e.g. http://my.org/repo
+            url = "$buildDir/maven"
+        }
+    }
+    publications {
+        myLibrary(MavenPublication) {
+            from components.java
+        }
     }
 }

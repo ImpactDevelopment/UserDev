@@ -20,5 +20,7 @@
   </component>
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/maven" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/repo" vcs="Git" />
   </component>
 </project>
