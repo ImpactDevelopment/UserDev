@@ -66,6 +66,7 @@ processResources {
 }
 
 jar {
+    classifier 'userdev'
     manifest {
         attributes(
                 'Specification-Title': 'Vanilla User Development',
